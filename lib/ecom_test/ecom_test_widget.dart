@@ -248,13 +248,6 @@ class _EcomTestWidgetState extends State<EcomTestWidget> {
                       ],
                     ),
                   ),
-                ),
-                Container(
-                  width: 100,
-                  height: MediaQuery.of(context).size.height * 0.01,
-                  decoration: BoxDecoration(
-                    color: Color(0xE7000000),
-                  ),
                 )
               ],
             ),
