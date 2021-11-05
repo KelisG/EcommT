@@ -1,3 +1,4 @@
+import '../backend/backend.dart';
 import '../category_prod_page/category_prod_page_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -6,6 +7,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import '../productdetails_screen/productdetails_screen_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -426,9 +428,17 @@ class _EcomTestWidgetState extends State<EcomTestWidget> {
                                                       color: Color(0x95413D3F),
                                                       size: 30,
                                                     ),
-                                                    onPressed: () {
-                                                      print(
-                                                          'IconButton pressed ...');
+                                                    onPressed: () async {
+                                                      final textfieldInputCreateData =
+                                                          createTextfieldInputRecordData(
+                                                        input:
+                                                            textController.text,
+                                                      );
+                                                      await TextfieldInputRecord
+                                                          .collection
+                                                          .doc()
+                                                          .set(
+                                                              textfieldInputCreateData);
                                                     },
                                                   )
                                                 ],
